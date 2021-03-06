@@ -5,6 +5,8 @@ import {CronJob} from 'cron';
 import http from 'http';
 import path from "path";
 
+const gg = gm.subClass({imageMagick: true});
+
 const __dirname = process.cwd();
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
@@ -155,7 +157,7 @@ const makePhoto = (pc1, pc2, who) => {
         if (who === 'Сильвестр Андреевич') {
             base = 'bbsil.png';
         }
-        gm(path.resolve(__dirname, base))
+        gg(path.resolve(__dirname, base))
             .noProfile()
             .font(path.resolve(__dirname, 'FreeSans.ttf'))
             .fill('#000000')
