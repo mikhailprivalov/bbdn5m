@@ -136,9 +136,12 @@ const getMessages = (who, what) => {
 const getMessage = async () => {
     const [who, what] = getMind();
     const [pc1, pc2, ...rest] = getMessages(who, what);
+    const photoPath = await makePhoto(pc1, pc2, who);
+
+    console.log({photoPath});
 
     return [
-        await makePhoto(pc1, pc2, who),
+        photoPath,
         rest.join('\n'),
     ];
 };
