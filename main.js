@@ -154,7 +154,7 @@ const makePhoto = (pc1, pc2, who) => {
         }
         gm(path.resolve(__dirname, base))
             .noProfile()
-            .font('SF Pro')
+            .font(path.resolve(__dirname, 'Freesans.ttf'))
             .fill('#000000')
             .fontSize(30)
             .drawText(140, -40, pc1, 'center')
