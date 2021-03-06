@@ -164,7 +164,11 @@ const makePhoto = (pc1, pc2, who) => {
             .fill('#ff0000')
             .fontSize(46)
             .drawText(140, 10, pc2, 'center')
-            .write(path.resolve(__dirname, 'bbres.png'), () => {
+            .write(path.resolve(__dirname, 'bbres.png'), (e) => {
+                if (e) {
+                    console.log('ERROR');
+                    console.log(e);
+                }
                 resolve(path.resolve(__dirname, 'bbres.png'));
             });
     });
