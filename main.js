@@ -141,7 +141,7 @@ const getMessage = async () => {
 };
 
 const makePhoto = (pc1, pc2, who) => {
-    return new Promise((resolve, reject) => {
+    return new Promise(resolve => {
         let base = './bbbase.png';
         if (who === 'Саша') {
             base = './bbsasha.png';
@@ -191,7 +191,7 @@ server.listen(Number(process.env.PORT) || 3000, (err) => {
     if (err) {
         return console.log('something bad happened', err)
     }
-    console.log(`server is listening on ${port}`)
+    console.log(`server is listening on ${Number(process.env.PORT) || 3000}`)
 })
 
 
