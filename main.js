@@ -186,7 +186,7 @@ bot.on('text', async ctx => {
 
 bot.launch();
 
-const job = new CronJob('0 0 11,20 * * *', function () {
+const job = new CronJob('0 0 10 * * *', function () {
     console.log('WOW1');
     sendToChannel();
 }, null, true, 'Europe/Moscow');
