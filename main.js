@@ -11,7 +11,7 @@ const __dirname = process.cwd();
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
-const chatId = 'blin_blinski_ng';
+const chatId = '-1001162699374';
 
 function declOfNum(n, text_forms) {
     n = Math.abs(n) % 100;
