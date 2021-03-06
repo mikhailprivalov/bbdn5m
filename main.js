@@ -3,6 +3,9 @@ import moment from 'moment';
 import gm from 'gm';
 import {CronJob} from 'cron';
 import http from 'http';
+import path from "path";
+
+const __dirname = process.cwd();
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
@@ -142,14 +145,14 @@ const getMessage = async () => {
 
 const makePhoto = (pc1, pc2, who) => {
     return new Promise(resolve => {
-        let base = './bbbase.png';
+        let base = 'bbbase.png';
         if (who === 'Саша') {
-            base = './bbsasha.png';
+            base = 'bbsasha.png';
         }
         if (who === 'Сильвестр Андреевич') {
-            base = './bbsil.png';
+            base = 'bbsil.png';
         }
-        gm(base)
+        gm(path.resolve(__dirname, base))
             .noProfile()
             .font('SF Pro')
             .fill('#000000')
@@ -158,8 +161,8 @@ const makePhoto = (pc1, pc2, who) => {
             .fill('#ff0000')
             .fontSize(46)
             .drawText(140, 10, pc2, 'center')
-            .write('./bbres.png', () => {
-                resolve('./bbres.png');
+            .write(path.resolve(__dirname, 'bbres.png'), () => {
+                resolve(path.resolve(__dirname, 'bbres.png'));
             });
     });
 };
