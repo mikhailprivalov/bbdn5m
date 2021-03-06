@@ -2,6 +2,7 @@ import {Telegraf} from 'telegraf';
 import moment from 'moment';
 import gm from 'gm';
 import {CronJob} from 'cron';
+import http from 'http';
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
@@ -179,6 +180,20 @@ const job = new CronJob('0 0 11,20 * * *', function () {
 }, null, true, 'Europe/Moscow');
 
 job.start();
+
+const requestHandler = (request, response) => {
+    console.log(request.url)
+    response.end('Hello Node.js Server!')
+}
+
+const server = http.createServer(requestHandler);
+server.listen(Number(process.env.PORT) || 3000, (err) => {
+    if (err) {
+        return console.log('something bad happened', err)
+    }
+    console.log(`server is listening on ${port}`)
+})
+
 
 process.once('SIGINT', () => {
     bot.stop('SIGINT');
