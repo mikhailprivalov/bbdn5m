@@ -130,7 +130,7 @@ const getMessages = (who, what) => {
     return [
         'До Нового Года',
         `${diffMinutes} ${declOfNum(diffMinutes, ['минута', 'минуты', 'минут'])}`,
-        `🗓 ${diffDays} ${declOfNum(diffDays, ['день', 'дней', 'дня'])}`,
+        `🗓 ${diffDays} ${declOfNum(diffDays, ['день', 'дня', 'дней'])}`,
         `💭 ${what}`,
     ];
 };
